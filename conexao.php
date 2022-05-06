@@ -31,5 +31,21 @@
             return 'erro';
         }
     }
+
+    function cadastraUser($login,$senha,$nome,$endereco,$cidade){ 
+        $connection = conexao();
+        $sql = "INSERT INTO users (loginUser, senha, nome, endereco, cidade) VALUES ('{$login}', md5('{$senha}'), '{$nome}','{$endereco}','{$cidade}')";
+        $statement = $connection->prepare($sql);
+        $statement->execute();
+
+        if ($statement->execute()) {
+            $retorno = login($login,$senha);
+            return $retorno;
+        }else{
+            
+            return 'erro';
+        }
+    }
+    
     
 ?>
