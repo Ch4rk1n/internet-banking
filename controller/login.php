@@ -1,4 +1,5 @@
 <?php 
+    
     require_once('../model/processaLogin.class.php');
 
     $userLogin = isset($_POST['login']) ? $_POST['login'] : '';
@@ -15,8 +16,22 @@
             echo 'erro';
         }
     }else if(isset($opcao) AND $opcao == 'deslogar'){
-        unset($_SESSION);
+        session_destroy();
         echo 'ok';
+    }else if(isset($opcao) AND $opcao == 'cadastrar'){
+        $endereco = isset($_POST['endereco']) ? $_POST['endereco'] : '';
+        $cidade   = isset($_POST['cidade'])   ? $_POST['cidade']   : '';
+        $nome     = isset($_POST['nome'])     ? $_POST['nome']       : '';
+
+        $login = new Login($userLogin,$senha);
+        $cadastra = $login->cadastraClass($nome,$endereco,$cidade);
+        
+        if(isset($cadastra) && $cadastra == 'ok'){
+            echo $cadastra;
+        }else{
+            echo 'erro';
+        }
+
     }
     
 

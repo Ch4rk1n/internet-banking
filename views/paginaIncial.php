@@ -1,4 +1,4 @@
-<?php require_once('../includes/includes.php'); require_once('../conexao.php'); var_dump($_SESSION); ?>
+<?php require_once('../includes/includes.php'); require_once('../conexao.php'); ?>
 <button class="btn btn-danger" onclick="deslogar();">Sair</button>
 <script>
     function deslogar(user){
