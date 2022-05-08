@@ -22,14 +22,17 @@
         $endereco = isset($_POST['endereco']) ? $_POST['endereco'] : '';
         $cidade   = isset($_POST['cidade'])   ? $_POST['cidade']   : '';
         $nome     = isset($_POST['nome'])     ? $_POST['nome']       : '';
+        $chave    = isset($_POST['chave'])    ? $_POST['chave']       : '';
 
         $login = new Login($userLogin,$senha);
-        $cadastra = $login->cadastraClass($nome,$endereco,$cidade);
+        $cadastra = $login->cadastraClass($nome,$endereco,$cidade,$chave);
         
         if(isset($cadastra) && $cadastra == 'ok'){
             echo $cadastra;
+        }else if(isset($cadastra) && $cadastra == 'existe'){
+            echo 'Email já cadastrado no sistema';
         }else{
-            echo 'erro';
+            echo 'Dados incorretos';
         }
 
     }
