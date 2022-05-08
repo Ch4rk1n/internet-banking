@@ -15,6 +15,12 @@
       <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" required>
     </div>
   </div>
+  <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="chave">Chave PIX</label>
+        <input type="text" class="form-control" name="chave" id="chave" placeholder="Chave PIX" required>
+      </div>
+  </div>
   <div class="row">
      <div class="form-group col-md-6">
         <label for="inputAddress">Endereço</label>
@@ -61,7 +67,7 @@
                     alert('cadastro efetuado com successo!');
                     $(location).attr('href', 'paginaIncial.php');
                 }else{
-                    alert('Dados incorretos');
+                    alert(r);
                 }
             }
         });

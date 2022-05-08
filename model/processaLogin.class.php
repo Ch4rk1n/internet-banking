@@ -15,11 +15,14 @@
                 return 'erro';
             }
         }
-        function cadastraClass($nome,$endereco,$cidade){
-            $cadastrar = cadastraUser($this->login,$this->senha,$nome,$endereco,$cidade);
-            if(isset($cadastrar) AND $cadastrar != 'erro'){
+        function cadastraClass($nome,$endereco,$cidade,$chave){
+            $cadastrar = cadastraUser($this->login,$this->senha,$nome,$endereco,$cidade,$chave);
+            
+            if(isset($cadastrar) AND $cadastrar == 'ok'){
                 $_SESSION['user']  = $this->login;
                 return 'ok';
+            }else if(isset($cadastrar) AND $cadastrar == 'existe'){
+                return 'existe';
             }else{
                 return 'erro';
             }

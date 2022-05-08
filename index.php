@@ -9,11 +9,12 @@
     <label for="senha" class="form-label">Senha</label>
     <input type="password" class="form-control" name="senha" id="senha" required>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Entrar</button>
   <a href="views/cadastraUser.php">Cadastre-se</a>
 </form>
 <script>
     $('.btn').on('click',function(){
+        $('#load').hide();
         let login = $('#login').val();
         let senha = $('#senha').val();
         if(login == null || login == ''){
@@ -37,6 +38,7 @@
                 }else{
                     alert('Dados incorretos');
                 }
+                $('#load').hide();
             }
         });
     })
