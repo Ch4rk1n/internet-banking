@@ -1,9 +1,9 @@
 <?php require_once('../includes/includes.php'); require_once('../conexao.php'); ?>
-<?php include('paginaPix.php'); ?>
+<?php include('paginaPix.php'); include('paginaDeposito.php'); ?>
 <button class="btn btn-warning" onclick="modal('#enviarPix');return false;">PIX</button>
-<button class="btn btn-info"    onclick="extrato();">Extrato</button>
-<button class="btn btn-primary" onclick="saque();">Saque</button>
-<button class="btn btn-danger"  onclick="deposito();">Deposito</button>
+<!-- <button class="btn btn-info"    onclick="modal();">Extrato</button>
+<button class="btn btn-primary" onclick="saque();">Saque</button> -->
+<button class="btn btn-danger"  onclick="modal('#depositar');return false;">Deposito</button>
 <button class="btn btn-danger"  onclick="deslogar();">Sair</button>
 
 <script>
