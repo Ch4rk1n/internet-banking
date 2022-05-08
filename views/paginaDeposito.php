@@ -14,7 +14,7 @@
         $.ajax({
             method: 'POST',
             url: '../controller/deposito.php',
-            data: 'opcao=depositar&&'+form,
+            data: 'opcao=depositar&'+form,
             beforeSend: function(){
                 $('#load').show();
             },
