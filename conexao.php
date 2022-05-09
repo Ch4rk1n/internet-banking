@@ -123,5 +123,8 @@
         }
     }
     
+    function registraExtrato($idUser,$acao){
+        $sql = insert("INSERT INTO extratos (id_user,acao) VALUES ({$idUser},'{$acao}')");
+    }
     
 ?>
