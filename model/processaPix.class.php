@@ -30,7 +30,7 @@
                     $updateR = update("UPDATE conta SET saldo = {$validaSaldo} WHERE id_user = {$this->idUser}"); 
                     $updateD = update("UPDATE conta SET saldo = {$novoSaldo} WHERE id_user = {$validaDestinatario[0]->id_user}"); ;
 
-                    $extrato = registraExtrato($this->idUser,"PIX efetuado no valor de ".$this->valor);
+                    $extrato = registraExtrato($this->idUser,"PIX efetuado no valor de R$".$this->valor);
 
                     return 'ok';
                 }

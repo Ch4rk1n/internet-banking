@@ -23,7 +23,7 @@
                     $updateR = update("UPDATE conta SET saldo = {$novoSaldo} WHERE id_user = {$this->idUser}"); 
 
                     if($updateR){
-                        $extrato = registraExtrato($this->idUser,"Saque efetuado no valor de ".$this->valor);
+                        $extrato = registraExtrato($this->idUser,"Saque efetuado no valor de R$".$this->valor);
 
                         return 'ok';
                     }else{
