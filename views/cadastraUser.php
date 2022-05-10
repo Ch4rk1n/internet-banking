@@ -54,7 +54,7 @@
             return false;
         }
         let form = $('#cadastrar').serialize();
-        
+        e.preventDefault();
         $.ajax({
             method: 'POST',
             url: '../controller/login.php',
