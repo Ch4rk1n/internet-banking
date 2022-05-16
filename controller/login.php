@@ -3,13 +3,9 @@
     require_once('../model/processaLogin.class.php');
 
     $userLogin = isset($_POST['login']) ? $_POST['login'] : '';
-    $senha     = $_POST['senha'];
+    $senha     = !empty($_POST['senha']) ? $_POST['senha'] : null;
     $opcao     = isset($_POST['opcao']) ? $_POST['opcao'] : '';
     
-    if(is_null($senha) OR isset($senha)){
-        echo 'Insira sua Senha';
-        exit();
-    }
 
     if(isset($opcao) AND $opcao == 'logar'){
         $login = new Login($userLogin,$senha);
