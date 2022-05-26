@@ -50,14 +50,14 @@
         }
     }
 
-    function cadastraUser($login,$senha,$nome,$endereco,$cidade,$chave){ 
+    function cadastraUser($login,$senha,$nome,$endereco,$cidade,$chave,$foto){ 
         $valida = validaLogin($login);
         
         if(isset($valida) AND $valida[0]->valida != 0){
             return 'existe';
         }else{
             $connection = conexao();
-            $sql = "INSERT INTO users (loginUser, senha, nome, endereco, cidade) VALUES ('{$login}', md5('{$senha}'), '{$nome}','{$endereco}','{$cidade}')";
+            $sql = "INSERT INTO users (loginUser, senha, nome, endereco, cidade,foto) VALUES ('{$login}', md5('{$senha}'), '{$nome}','{$endereco}','{$cidade}','{$foto}')";
             $statement = $connection->prepare($sql);
             $statement->execute();
             

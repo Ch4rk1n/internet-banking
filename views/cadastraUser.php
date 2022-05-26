@@ -1,6 +1,6 @@
 <?php include('../includes/includes.php'); ?>
-<form id="cadastrar">
-  
+<form id="cadastrar" enctype="multipart/form-data">
+  <input type="hidden" name="opcao" id="opcao" value="cadastrar">
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="nome">Nome</label>
@@ -13,6 +13,10 @@
     <div class="form-group col-md-4">
       <label for="inputPassword4">Senha</label>
       <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" required>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="foto">foto</label>
+      <input type="file" class="form-control" name="foto" id="foto" placeholder="Foto">
     </div>
   </div>
   <div class="form-row">
@@ -53,23 +57,27 @@
         if(cidade == null || cidade == ''){
             return false;
         }
-        let form = $('#cadastrar').serialize();
         e.preventDefault();
+        const form = new FormData($('#cadastrar')[0]);
+        
         $.ajax({
-            method: 'POST',
-            url: '../controller/login.php',
-            data: 'opcao=cadastrar&'+form,
-            beforeSend: function(){
-                $('#load').show();
-            },
-            success: function(r){
-                if(r == 'ok'){
-                    alert('cadastro efetuado com successo!');
-                    $(location).attr('href', 'paginaIncial.php');
-                }else{
-                    alert(r);
-                }
-            }
+          url: '../controller/login.php',
+          method: 'POST',
+          data: form,
+          contentType: false,
+          cache: false,
+          processData:false,    
+          beforeSend: function(){
+              $('#load').show();
+          },
+          success: function(r){
+              if(r == 'ok'){
+                  alert('cadastro efetuado com successo!');
+                  $(location).attr('href', 'paginaIncial.php');
+              }else{
+                  alert(r);
+              }
+          }
         });
         
     })
