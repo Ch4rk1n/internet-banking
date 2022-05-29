@@ -15,8 +15,8 @@
                 return 'erro';
             }
         }
-        function cadastraClass($nome,$endereco,$cidade,$chave){
-            $cadastrar = cadastraUser($this->login,$this->senha,$nome,$endereco,$cidade,$chave);
+        function cadastraClass($nome,$endereco,$cidade,$chave,$foto){
+            $cadastrar = cadastraUser($this->login,$this->senha,$nome,$endereco,$cidade,$chave,$foto);
             
             if(isset($cadastrar) AND $cadastrar == 'ok'){
                 $_SESSION['user']  = $this->login;

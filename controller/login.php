@@ -24,9 +24,15 @@
         $cidade   = isset($_POST['cidade'])   ? $_POST['cidade']   : '';
         $nome     = isset($_POST['nome'])     ? $_POST['nome']       : '';
         $chave    = isset($_POST['chave'])    ? $_POST['chave']       : '';
-
+        $fotoname = $_FILES['foto']['name'];
+        if(!is_null($fotoname) or isset($fotoname)){
+            $tmp_foto = $_FILES['foto']['tmp_name'];$path = '../assets/fotosUsers/';
+            $foto = $path.$fotoname; move_uploaded_file($tmp_foto, $foto);
+        }else{
+            $foto = null;
+        }
         $login = new Login($userLogin,$senha);
-        $cadastra = $login->cadastraClass($nome,$endereco,$cidade,$chave);
+        $cadastra = $login->cadastraClass($nome,$endereco,$cidade,$chave,$foto);
         
         if(isset($cadastra) && $cadastra == 'ok'){
             echo $cadastra;
