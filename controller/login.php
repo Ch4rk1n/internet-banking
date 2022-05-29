@@ -27,7 +27,7 @@
         $fotoname = $_FILES['foto']['name'];
         if(!is_null($fotoname) or isset($fotoname)){
             $tmp_foto = $_FILES['foto']['tmp_name'];$path = '../assets/fotosUsers/';
-            $foto = $path.$fotoname; move_uploaded_file($tmp_foto, $foto);
+            $foto = $path.uniqid().$fotoname; move_uploaded_file($tmp_foto, $foto);
         }else{
             $foto = null;
         }
