@@ -11,7 +11,11 @@
         function enviarPix(){
             $validaRemetente    = select("SELECT * FROM users WHERE id={$this->idUser} and md5('{$this->senha}'); ");
             $validaDestinatario = select("SELECT * FROM conta WHERE chave_pix = '{$this->chave}'; ");
+            
 
+            if($validaRemetente[0]->id == $validaDestinatario[0]->id_user){
+                return 'Você não pode se enviar um PIX';
+            }
             if($validaRemetente AND $validaDestinatario){
                 $pegaSaldoR = select("SELECT saldo FROM conta WHERE id_user = {$this->idUser}");
                 $pegaSaldoD = select("SELECT saldo FROM conta WHERE id_user = {$validaDestinatario[0]->id_user}");
