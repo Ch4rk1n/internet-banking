@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Kwanzas Banking</title>
+        <title>Internet Banking</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
@@ -32,7 +32,7 @@
             </div>
         </nav>
         <section>
-            <h1>KWANZAS BANKING LTDA</h1>
+            <h1>INTERNET BANKING LTDA</h1>
             <h4>Olá, <?=$dados[0]->nome?></h4>
             <h5>Seu saldo é de: R$<?=$dados[0]->saldo?></h5>
         </section>
